@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssemblyJSPerformanceTest_Net6.Server", "Server\BlazorWebAssemblyJSPerformanceTest_Net6.Server.csproj", "{055BE24D-7022-42B9-9127-E822E275BD7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssemblyJSPerformanceTest_Net6.Client", "Client\BlazorWebAssemblyJSPerformanceTest_Net6.Client.csproj", "{70F2FAB1-4820-498C-BCD8-06E5FC00E9D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{055BE24D-7022-42B9-9127-E822E275BD7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{055BE24D-7022-42B9-9127-E822E275BD7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{055BE24D-7022-42B9-9127-E822E275BD7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{055BE24D-7022-42B9-9127-E822E275BD7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70F2FAB1-4820-498C-BCD8-06E5FC00E9D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F2FAB1-4820-498C-BCD8-06E5FC00E9D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70F2FAB1-4820-498C-BCD8-06E5FC00E9D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70F2FAB1-4820-498C-BCD8-06E5FC00E9D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A6C54D5-9678-4739-A47B-377F16CE3829}
+	EndGlobalSection
+EndGlobal

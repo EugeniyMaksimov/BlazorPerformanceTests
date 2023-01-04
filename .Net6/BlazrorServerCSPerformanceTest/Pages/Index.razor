@@ -1,0 +1,47 @@
+﻿@page "/"
+@using System.Diagnostics;
+
+<PageTitle>Blazor Server-Side C# Performance Test</PageTitle>
+
+<button @onclick="OnTestMeasuredByDateTimeClick">Test measured by DateTime</button>
+<button @onclick="OnTestMeasuredByStopwatchClick">Test measured by Stopwatch</button>
+<button @onclick="OnClearClick">Clear</button>
+
+<div>Result for measuring by DateTime = @resultForMeasuringByDateTime</div>
+<div>Result for measuring by Stopwatch = @resultForMeasuringByStopwatch</div>
+<div>Time measured by DateTime = @((int)timeMeasuredByDateTime.TotalMilliseconds) msec</div>
+<div>Time measured by Stopwatch = @((int)timeMeasuredByStopwatch.TotalMilliseconds) msec</div>
+
+
+
+@code {
+    double resultForMeasuringByDateTime = 0;
+    double resultForMeasuringByStopwatch = 0;
+    TimeSpan timeMeasuredByDateTime = new TimeSpan();
+    TimeSpan timeMeasuredByStopwatch = new TimeSpan();
+
+    void OnTestMeasuredByDateTimeClick() {
+        DateTime start = DateTime.UtcNow;
+        for (int i = 0; i < 1_000_000_000; i++) {
+            resultForMeasuringByDateTime += i * 0.5 + i / 0.3;
+        }
+        DateTime end = DateTime.UtcNow;
+        timeMeasuredByDateTime = end - start;
+    }
+
+    void OnTestMeasuredByStopwatchClick() {
+        Stopwatch stopwatch = Stopwatch.StartNew();
+        for (int i = 0; i < 1_000_000_000; i++) {
+            resultForMeasuringByStopwatch += i * 0.5 + i / 0.3;
+        }
+        stopwatch.Stop();
+        timeMeasuredByStopwatch = stopwatch.Elapsed;
+    }
+
+    void OnClearClick() {
+        resultForMeasuringByDateTime = 0;
+        resultForMeasuringByStopwatch = 0;
+        timeMeasuredByDateTime = new TimeSpan();
+        timeMeasuredByStopwatch = new TimeSpan();
+    }
+}

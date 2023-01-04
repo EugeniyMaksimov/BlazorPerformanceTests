@@ -1,0 +1,17 @@
+﻿@page "/"
+@using System.Diagnostics;
+@using System.Runtime.InteropServices.JavaScript;
+
+<PageTitle>Blazor Server-Side C# Performance Test</PageTitle>
+
+<button @onclick="OnTestMeasuredByDateTimeClick">Test measured by DateTime</button>
+<button @onclick="OnTestMeasuredByStopwatchClick">Test measured by Stopwatch</button>
+<button @onclick="OnClearClick">Clear</button>
+
+<div>Result for measuring by DateTime = @resultForMeasuringByDateTime</div>
+<div>Result for measuring by Stopwatch = @resultForMeasuringByStopwatch</div>
+<div>Time measured by DateTime = @((int)timeMeasuredByDateTime.TotalMilliseconds) msec</div>
+<div>Time measured by Stopwatch = @((int)timeMeasuredByStopwatch.TotalMilliseconds) msec</div>
+
+
+

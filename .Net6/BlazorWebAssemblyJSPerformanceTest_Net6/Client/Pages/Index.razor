@@ -1,0 +1,53 @@
+﻿@page "/"
+@using System.Diagnostics;
+@inject IJSRuntime JsRuntime;
+
+<PageTitle>Blazor Server-Side C# Performance Test</PageTitle>
+
+<button @onclick="OnTestMeasuredByDateTimeClick">Test measured by DateTime</button>
+<button @onclick="OnTestMeasuredByStopwatchClick">Test measured by Stopwatch</button>
+<button @onclick="OnClearClick">Clear</button>
+
+<div>Result for measuring by DateTime = @resultForMeasuringByDateTime</div>
+<div>Result for measuring by Stopwatch = @resultForMeasuringByStopwatch</div>
+<div>Time measured by DateTime = @((int)timeMeasuredByDateTime.TotalMilliseconds) msec</div>
+<div>Time measured by Stopwatch = @((int)timeMeasuredByStopwatch.TotalMilliseconds) msec</div>
+
+
+
+@code {
+    double resultForMeasuringByDateTime = 0;
+    double resultForMeasuringByStopwatch = 0;
+    TimeSpan timeMeasuredByDateTime = new TimeSpan();
+    TimeSpan timeMeasuredByStopwatch = new TimeSpan();
+    IJSObjectReference module;
+
+    IJSInProcessRuntime JS => (IJSInProcessRuntime)JsRuntime;
+
+    async void OnTestMeasuredByDateTimeClick() {
+        DateTime start = DateTime.UtcNow;
+        resultForMeasuringByDateTime = await module.InvokeAsync<double>("calculate");
+        DateTime end = DateTime.UtcNow;
+        timeMeasuredByDateTime = end - start;
+        StateHasChanged();
+    }
+
+    async void OnTestMeasuredByStopwatchClick() {
+        Stopwatch stopwatch = Stopwatch.StartNew();
+        resultForMeasuringByStopwatch = await module.InvokeAsync<double>("calculate");
+        stopwatch.Stop();
+        timeMeasuredByStopwatch = stopwatch.Elapsed;
+        StateHasChanged();
+    }
+
+    void OnClearClick() {
+        resultForMeasuringByDateTime = 0;
+        resultForMeasuringByStopwatch = 0;
+        timeMeasuredByDateTime = new TimeSpan();
+        timeMeasuredByStopwatch = new TimeSpan();
+    }
+
+    protected override async Task OnInitializedAsync() {
+        module = await JS.InvokeAsync<IJSObjectReference>("import", "./Pages/Index.razor.js");
+    }
+}

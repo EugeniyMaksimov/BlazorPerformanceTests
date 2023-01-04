@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\BlazorWebAssemblyCSPerformanceTest_Net6.Server.props" />
+</Project>
