@@ -1,8 +1,0 @@
-{
-  "version": 2,
-  "dgSpecHash": "TIBMA2j5oyaKDQwNnb+V+yj8RriLQfsl+cdv4R3jH6dSsQKw5esSMNcWbqEK0GYpKCG2vR5Tgb0KhFZ/YfP4LQ==",
-  "success": true,
-  "projectFilePath": "C:\\Projects\\Blazor\\Wasm vs Aot Wasm vs Server Performance\\.Net7\\BlazrorServerCSPerformanceTest\\BlazrorServerCSPerformanceTest.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
-}

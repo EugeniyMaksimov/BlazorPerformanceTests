@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\BlazorWebAssemblyCSPerformanceTest_Net7.Client.props" />
-</Project>
